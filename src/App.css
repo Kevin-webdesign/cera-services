@@ -18,7 +18,10 @@
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
+
+
 /* --------navigation bar------------ */
 /* Navbar Styles */
 nav {
