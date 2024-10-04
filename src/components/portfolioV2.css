@@ -1,0 +1,144 @@
+/* Portfolio Header */
+.portfolioV2-header {
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 60px 20px;
+  }
+  
+  .portfolioV2-title {
+    font-size: 40px;
+    margin: 0;
+    font-weight: 600;
+  }
+  
+  .portfolioV2-subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-top: 10px;
+  }
+  
+  /* Portfolio Gallery */
+  .portfolioV2-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 40px;
+  }
+  
+  .portfolioV2-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .portfolioV2-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .portfolioV2-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+  }
+  
+  .portfolioV2-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .portfolioV2-item:hover .portfolioV2-overlay {
+    opacity: 1;
+  }
+  
+  .portfolioV2-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+  }
+  
+  .portfolioV2-text h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .portfolioV2-text p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .portfolioV2-links a {
+    color: #00d4ff;
+    font-size: 16px;
+    text-decoration: none;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+  }
+  
+  .portfolioV2-links a:hover {
+    color: #00aaff;
+  }
+  
+  .portfolioV2-links svg {
+    margin-right: 5px;
+  }
+  
+  /* RESPONSIVENESS */
+  
+  /* For tablets */
+  @media (max-width: 768px) {
+    .portfolioV2-title {
+      font-size: 32px;
+    }
+    .portfolioV2-subtitle {
+      font-size: 16px;
+    }
+  
+    .portfolioV2-gallery {
+      padding: 20px;
+    }
+  
+    .portfolioV2-text h3 {
+      font-size: 20px;
+    }
+  
+    .portfolioV2-text p {
+      font-size: 14px;
+    }
+  }
+  
+  /* For mobile devices */
+  @media (max-width: 480px) {
+    .portfolioV2-title {
+      font-size: 28px;
+    }
+  
+    .portfolioV2-subtitle {
+      font-size: 14px;
+    }
+  
+    .portfolioV2-gallery {
+      padding: 5px;
+      gap: 15px;
+    }
+  
+    .portfolioV2-text h3 {
+      font-size: 18px;
+    }
+  
+    .portfolioV2-text p {
+      font-size: 12px;
+    }
+  }
+  

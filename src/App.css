@@ -1,38 +1,722 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Titillium Web', sans-serif; /* Updated Font */
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --text-color: rgb(250, 243, 243);
+  --bg-color: rgba(31, 30, 30, 0.979);
+  --spin-color: #f4b41a;
+  --border-color: rgb(0, 4, 255);
+  --text-black-700: rgb(255, 38, 10);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+/* --------navigation bar------------ */
+/* Navbar Styles */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color:#fefffff3;
+  padding: 10px 20px;
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+nav .logo img {
+  width: 100px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: var(--bg-color);
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li a i {
+  margin-right: 8px;
+}
+
+nav ul li a:hover {
+  color: #f4b41a;
+}
+
+.nav-btn {
+  font-size: 24px;
+  color: rgb(3, 3, 3);
+  display: none;
+  cursor: pointer;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  nav ul {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #ffffffec;
+    width: 200px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+  }
+  nav ul.open {
+    transform: translateX(0);
+  }
+  nav .logo img {
+    width: 90px;
+  }
+  nav ul li {
+    margin: 20px 0;
+  }
+
+  .nav-btn {
+    display: block;
+  }
+
+  .nav-close {
+    position: absolute;
+    top: 20px;
+    right: 10px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* -------end of nav-------- */
+.design{
+width: 100%;
+position: relative;
+}
+.design img{
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  opacity: 0.5px;
+}
+.container{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  position: relative;
+}
+.home_title{
+ top: 100px;
+}
+.photo img{
+  margin-top: 140px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+.contents{
+  width: 100%;
+}
+.me{
+  padding: 30px;
+}
+h3 span{
+  color: var(--spin-color);
+}
+.home-btn{
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+/* Responsive styles */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: start;
+  }
+  .header {
+    padding-top: 100px;
+  }
+  .header-text, .photo {
+    padding: 10px;
+  }
+  .header-text h1 {
+    font-size: 28px;
+  }
+  .header-text h3 {
+    font-size: 20px;
+  }
+  .content{
+    padding: 2px 15px 0 20px;
+  }
+  .content h3{
+    padding: 0 10px 0 0;
+  }
+  .me {
+    padding: 20px 0 ;
+    font-size: 14px;
+  }
+  .photo img{
+    margin-top: 100px;
+    width: 200px;
+    height: 200px;
+  }
+  .home-btn{
+   justify-content: center;
+   padding: 0 10px 0 10px;
+  }
+  .whatsapp-btn {
+    width: 50%;
+  }
+}
+
+/* ----------------about--------------- */
+.row{
+  
+  display: flex;
+  justify-content: space-between;
+}
+.about-col-2{
+  justify-content: space-between;
+  flex-basis: 70%;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+.subtitle{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 50px;
+  position: relative;
+}
+.cef{
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+.tabs{
+  margin-right: 50px;
+  font-size: 20px;
+  font-weight:bolder;
+  cursor: pointer;
+  position: relative;
+  padding: 10px 20px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+.tabs::after{
+ content: '';
+ width: 0;
+ height: 4px;
+ position: absolute;
+ bottom: -6px;
+ left: 0;
+ transition: 0.5s;
+}
+.tabs:hover{
+  margin-right: 50px;
+  border-radius: 6px;
+  color: #f4b41a;
+  position:relative;
+}
+.tabs.active_tab{
+  color: #f4b41a;
+}
+.tabs.active_tab::after{
+  border-bottom: 2px solid #f41a1a;
+  width: 50%;
+}
+.contents {
+  display: none;
+}
+.contents ul li{
+  font-size: 15px;
+}
+.row{
+  max-width: 700px;
+}
+.contents.active_link{
+display:contents;
+}
+
+ .timeline {
+  padding: 30px 15px;
+  border: 1px solid var(--bg-black-50);
+  border-radius: 10px;
+  width: 100%;
+  position: relative;
+}
+.timeline .timeline-item {
+  position: relative;
+  padding-left: 37px;
+  padding-bottom: 50px;
+}
+.timeline .timeline-item:last-child {
+  padding-bottom: 0;
+}
+ .timeline .timeline-date {
+  font-weight: 400;
+  font-size: 25px;
+  margin-bottom: 12px;
+  color: var(--spin-color);
+}
+
+ .timeline .timeline-date .fa {
+  margin-right: 5px;
+}
+.timeline .timeline-title {
+  font-weight: 700;
+  font-size: 23px;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+  color: var(--text-black-700);
+}
+
+.timeline .timeline-text {
+  line-height: 25px;
+  font-size: 20px;
+  text-align: justify;
+  color: var(--text-black-700);
+}
+/* ----what-want=== */
+.row{
+  padding: 2em;
+  background-color: #201f1f;
+  border-radius: 10px;
+  position: relative;
+  margin: 10px auto;
+}
+.row ::after ,.row ::before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: var(--spin-color);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 3px;
+  border-radius: 10px;
+  animation: 3s spin linear infinite;
+}
+.row ::before{
+  filter: blur(1.0em);
+  opacity: 0.5; 
+}
+/* ---------services----- */
+/* General styles for the services section */
+.work {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 50px 0;
+}
+.work .row-1 {
+  background-color: #f0eaea;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(252, 0, 0, 0.534);
+}
+.work .row-1:hover{
+  transform: scale(1.15);
+  overflow: hidden;
+  background-color: #000000;
+}
+.service {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.service-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+  color: #007bff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.service h4 a {
+  color: #333;
+  text-decoration: none;
+  font-size: 22px;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+.service p {
+  font-size: 16px;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* Responsive design for tablets and smaller screens */
+@media (max-width: 768px) {
+  .subtitle {
+    font-size: 28px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .row {
+    width: 80%;
+  }
+
+  .service h4 a {
+    font-size: 20px;
+  }
+
+  .service p {
+    font-size: 14px;
+  }
+}
+
+/* For mobile screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .subtitle {
+    font-size: 24px;
+  }
+
+  .row {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .service h4 {
+    font-size: 18px;
+  }
+
+  .service-icon {
+    font-size: 30px;
+  }
+
+  .service p {
+    font-size: 12px;
+  }
+}
+
+/* ---------Contact--------- */
+.contact{
+  margin: 50px 500px;
+  width: 350px;
+  background-color: aliceblue;
+  border-radius: 5px;
+  text-align: center;
+  padding: 20px;
+  color: black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.contact h1{
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+.btn{
+  border: none !important;
+  cursor: pointer;
+  background-color:  rgb(51, 187, 124);
+  margin: 15px 0;
+  font-size: 16px;
+  width: 100%;
+  padding: 14px;
+}
+.topimg {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.header-text {
+  position: absolute;
+  color: white;
+  text-align: center;
+}
+
+.header-text h1 {
+  font-size: 48px;
+  margin: 0;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+.contact-form {
+  width: 50%;
+  background-color: aliceblue;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.contact-form h2 {
+  margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  color: #222121;
+  background-color: aliceblue;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid rgb(75, 75, 214);
+  margin-bottom: 20px;
+  font-size: 16px;
+  outline: none;
+}
+.whatsapp-btn a{
+  color: #f0eaea;
+  text-decoration: none;
+  font-size: larger;
+  
+}
+.whatsapp-btn {
+  margin-top: 20px;
+  background-color: #25d366;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.whatsapp-btn i{
+  padding: 10px 0 0 0 ;
+  font-size: large;
+}
+
+.whatsapp-btn:hover {
+  background-color: #068d3a;
+}
+
+.contact-info {
+  width: 40%;
+}
+
+.contact-info h2 {
+  margin-bottom: 20px;
+}
+
+.location {
+  margin-bottom: 30px;
+}
+
+.location h4 {
+  margin-bottom: 10px;
+}
+
+.location p {
+  margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+  .contact-form h2{
+    color: #000000;
+  }
+  .contact-container {
+    flex-direction: column;
+    padding: 20px 0 40px 0;
+    width: 100%;
+    gap: 40px;
+  }
+
+  .contact-form{
+    width: 98%;
+  }
+  .contact-info{
+    width: 100%;
+    padding-left: 15px;
+  } 
+}
+
+/* Error message styling */
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+/* Input error styles */
+.contact input.error,
+.contact textarea.error {
+  border-color: red;
+}
+@media (max-width: 768px) {
+  .contact {
+    margin: 50px auto;
+    width: 90%;
+  }
+
+  .header .subtitle {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    margin: 30px auto;
+    width: 90%;
+  }
+
+  .contact h1 {
+    font-size: 20px;
+  }
+
+  .header .subtitle {
+    font-size: 20px;
+  }
+}
+
+/* ----phone------ */
+@media (max-width: 768px) {
+  .row{
+    width: 100%;
+  }
+  .contents.active_link{
+  display:contents;
+  }
+  
+   .timeline {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position:initial;
+  }
+  .timeline .timeline-item {
+    padding-left: initial;
+    padding-bottom: 50px;
+  }
+   .timeline .timeline-date {
+    font-weight: 100;
+    font-size: 17px;
+    margin-bottom: 12px;
+  }
+  
+   .timeline .timeline-date .fa {
+    margin-right: 4px;
+  }
+  .timeline .timeline-title {
+    font-weight: 100;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .timeline .timeline-text {
+    line-height: 18px;
+    font-size: 13px;
+    text-align: justify;
+    color: var(--text-black-700);
+  }
+  .timeline  ul{
+    padding-left: 5px;
+  }
+  .timeline  ul li{
+    line-height: 18px;
+    font-size: 13px;
+  }
+  .cef {
+  align-items: start;
+  padding: 5px;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  }
+  .tabs {
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  .header .subtitle {
+    font-size: 30px;
+  }
+  .timeline-title {
+    font-size: 18px;
+  }
+
+  .timeline-text {
+    font-size: 14px;
+  }
+}
+
+/* For mobile screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .photo{
+    padding: 0 0 0 60px;
+  }
+  .header-text{
+    padding: 30px 0 0;
+  }
+  .row{
+    width:100%;
+    margin: 20px auto;
+  }
+  .about-col-2 {
+    padding: 10px;
+  }
+
+  .header {
+    padding: 30px 10px;
+  }
+
+  .header .subtitle {
+    font-size: 24px;
+  }
+
+  .tabs {
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  .timeline-date {
+    font-size: 12px;
+  }
+
+  .timeline-title {
+    font-size: 14px;
+  }
+
+  .timeline-text {
+    font-size: 10px;
+  }
+
+  ul li {
+    font-size: 8px;
   }
 }

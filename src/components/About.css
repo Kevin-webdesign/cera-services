@@ -1,0 +1,123 @@
+
+
+  .cef {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .tabs {
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .active_tab {
+    border-bottom: 2px solid #f4b41a;
+    color: #f4b41a;
+  }
+  
+  .contents {
+    display: none;
+  }
+  
+  .active_link {
+    display: block;
+  }
+  
+  .timeline-box {
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .timeline {
+    margin-top: 20px;
+    padding-left: 20px;
+  }
+  
+  .timeline-item {
+    margin-bottom: 30px;
+  }
+  
+  .timeline-date {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .timeline-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .timeline-text,
+  .timeline ul {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .timeline ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .about-col-2 {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .timeline-box {
+      padding: 0;
+    }
+  
+    .tabs {
+      font-size: 18px;
+      padding: 10px;
+    }
+  
+    .timeline-date,
+    .timeline-title,
+    .timeline-text {
+      text-align: left;
+    }
+  }
+  @media (max-width: 768px) {
+    /* Show the hamburger icon */
+    .nav-btn {
+      display: block;
+    }
+  
+    /* Hide the navigation menu initially */
+    nav ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      padding: 20px 0;
+      z-index: 1;
+    }
+  
+    /* Show the menu when it is open */
+    nav ul.active {
+      display: flex;
+    }
+  
+    nav ul li {
+      margin: 10px 0;
+      text-align: center;
+    }
+  
+    /* Show the close button when the menu is open */
+    .nav-close {
+      display: block;
+    }
+  }
