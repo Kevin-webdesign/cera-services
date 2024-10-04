@@ -98,7 +98,8 @@ nav ul li a:hover {
     width: 90px;
   }
   nav ul li {
-    margin: 0 0 20px 0;
+    top: 0;
+    margin: 5px 0 20px 0;
   }
 
   .nav-btn {
