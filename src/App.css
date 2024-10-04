@@ -79,7 +79,7 @@ nav ul li a:hover {
 @media (max-width: 768px) {
   nav ul {
     position: absolute;
-    top: 70px;
+    top: 20px;
     right: 0;
     background-color: #ffffffec;
     width: 200px;
