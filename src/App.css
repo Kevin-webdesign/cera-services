@@ -28,7 +28,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color:#fefffff3;
+  background-color:#feffff;
   padding: 10px 20px;
   z-index: 1000;
   position: fixed;
@@ -81,7 +81,7 @@ nav ul li a:hover {
     position: absolute;
     top: 70px;
     right: 0;
-    background-color: #ffffffec;
+    background-color: #ffffff;
     width: 200px;
     height: 100vh;
     flex-direction: column;
