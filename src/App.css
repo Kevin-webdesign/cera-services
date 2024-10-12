@@ -348,12 +348,7 @@ display:contents;
   text-align: center;
   transition: all 0.3s ease;
   box-shadow: 0 4px 8px rgba(252, 0, 0, 0.534);
-}
-.work .row-1:hover{
-  transform: scale(1.15);
-  overflow: hidden;
-  background-color: #000000;
-}
+ }
 .service {
   display: flex;
   flex-direction: column;

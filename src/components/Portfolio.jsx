@@ -1,66 +1,92 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './navbar/Navbar';
 import Footer from './footer/Footer';
-import project1 from './cera pictures/first design.jpeg';
-import project2 from './cera pictures/second design.jpeg';
-import project3 from './cera pictures/3rd design.jpeg';
-
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import project1 from './cera pictures/GACURIRO PROJECT/DESIGN/CHANTAL-22 EXCUTION 3.jpg';
+import project1a from './cera pictures/GACURIRO PROJECT/DESIGN/design2.jpg';
+import project1b from './cera pictures/GACURIRO PROJECT/DESIGN/design1.jpg';
+import project1c from './cera pictures/GACURIRO PROJECT/DESIGN/design3.jpg';
+import project1d from './cera pictures/GACURIRO PROJECT/DESIGN/design4-1.jpg';
+import project1e from './cera pictures/GACURIRO PROJECT/DESIGN/design5.jpg';
+import project1f from './cera pictures/GACURIRO PROJECT/DESIGN/design6.JPG';
+import project2 from './cera pictures/GACURIRO PROJECT/EXECUTION OF DESIGN/Excution1.jpg';
+import project2a from './cera pictures/GACURIRO PROJECT/EXECUTION OF DESIGN/Exction2.jpg';
+import project2b from './cera pictures/GACURIRO PROJECT/EXECUTION OF DESIGN/exction3.jpg';
+import project2c from './cera pictures/GACURIRO PROJECT/EXECUTION OF DESIGN/exction4.jpg';
+import project2d from './cera pictures/GACURIRO PROJECT/EXECUTION OF DESIGN/exction5.jpg';
+import project2e from './cera pictures/GACURIRO PROJECT/EXECUTION OF DESIGN/exction6.jpg';
+import project3 from './cera pictures/GACURIRO PROJECT/COMPLETION/complet1.jpg';
+import project3a from './cera pictures/GACURIRO PROJECT/COMPLETION/complet2.jpg';
+import project3b from './cera pictures/GACURIRO PROJECT/COMPLETION/complet3.jpg';
 import './portfolioV2.css';
 
 const PortfolioV2 = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   const portfolioItems = [
     {
-      title: 'Urban Planning Design',
-      description: 'A complete urban planning solution focusing on smart city principles.',
-      image: project1,
-      link: 'https://example.com/project1',
-      repo: 'https://github.com/example/project1',
+      title: 'Architecture & Permitting',
+      description: '',
+      mainImage: project1,
+      gallery: [project1, project1a, project1b, project1c ,project1d ,project1e ,project1f]
     },
     {
-      title: '3D Architectural Render',
-      description: 'High-end 3D renders for a residential project in Kigali.',
-      image: project2,
-      link: 'https://example.com/project2',
-      repo: 'https://github.com/example/project2',
+      title: 'Construction',
+      description: '',
+      mainImage: project2,
+      gallery: [project2, project2a, project2b ,project2c ,project2d ,project2e]
     },
     {
-      title: 'Bridge Construction Blueprint',
-      description: 'Blueprints for an innovative bridge design, optimized for heavy loads.',
-      image: project3,
-      link: 'https://example.com/project3',
-      repo: 'https://github.com/example/project3',
+      title: 'Custom Buildings Builder',
+      description: '',
+      mainImage: project3,
+      gallery: [project3, project3a, project3b]
     },
   ];
+
+  const handleImageClick = (project) => {
+    setSelectedProject(project);
+  };
+
+  const closeModal = () => {
+    setSelectedProject(null);
+  };
 
   return (
     <div>
       <Navbar />
       <div className="portfolioV2-header">
-        <h1 className="portfolioV2-title">My Projects</h1>
         <p className="portfolioV2-subtitle">A showcase of my recent works</p>
       </div>
       <div className="portfolioV2-gallery">
         {portfolioItems.map((item, index) => (
-          <div key={index} className="portfolioV2-item">
-            <img src={item.image} alt={item.title} className="portfolioV2-image" />
+          <div key={index} className="portfolioV2-item" onClick={() => handleImageClick(item)}>
+            <img src={item.mainImage} alt={item.title} className="portfolioV2-image" />
             <div className="portfolioV2-overlay">
               <div className="portfolioV2-text">
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
-                <div className="portfolioV2-links">
-                  <a href={item.link} target="_blank" rel="noopener noreferrer">
-                    <FaExternalLinkAlt /> Live Project
-                  </a>
-                  <a href={item.repo} target="_blank" rel="noopener noreferrer">
-                    <FaGithub /> GitHub
-                  </a>
-                </div>
               </div>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Modal for showing gallery */}
+      {selectedProject && (
+        <div className="portfolioV2-modal">
+          <div className="portfolioV2-modal-content">
+            <span className="portfolioV2-close" onClick={closeModal}>&times;</span>
+            <h2>{selectedProject.title}</h2>
+            <p>{selectedProject.description}</p>
+            <div className="portfolioV2-modal-gallery">
+              {selectedProject.gallery.map((image, index) => (
+                <img key={index} src={image} alt={`Gallery ${index}`} className="portfolioV2-modal-image" loading="lazy"/>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       <Footer />
     </div>
   );

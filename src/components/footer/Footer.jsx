@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css'; // You can style your footer here
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaLinkedin, FaInstagram } from 'react-icons/fa';
 const Footer = () => {
   return (
     <footer className="footer">
@@ -24,12 +24,6 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Follow Us</h4>
           <div className="social-media">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <i><FaFacebook/></i>
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <i><FaTwitter/></i>
-            </a>
             <a href="https://www.instagram.com/rwanyagasorechancelier?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
               <i><FaInstagram/></i>
             </a>

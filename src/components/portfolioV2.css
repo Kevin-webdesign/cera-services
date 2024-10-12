@@ -3,6 +3,7 @@
     text-align: center;
     background-color: #f5f5f5;
     padding: 60px 20px;
+    margin-top: 50px;
   }
   
   .portfolioV2-title {
@@ -12,9 +13,10 @@
   }
   
   .portfolioV2-subtitle {
-    font-size: 18px;
-    color: #666;
+    font-size: 50px;
+    color: #02005e;
     margin-top: 10px;
+    font-weight: bold;
   }
   
   /* Portfolio Gallery */
@@ -77,34 +79,53 @@
     font-size: 16px;
     margin-bottom: 20px;
   }
-  
-  .portfolioV2-links a {
-    color: #00d4ff;
-    font-size: 16px;
-    text-decoration: none;
-    margin-right: 15px;
-    transition: color 0.3s ease;
-  }
-  
-  .portfolioV2-links a:hover {
-    color: #00aaff;
-  }
-  
   .portfolioV2-links svg {
     margin-right: 5px;
   }
   
   /* RESPONSIVENESS */
+  .portfolioV2-modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.856);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   
+  .portfolioV2-modal-content {
+    background-color: rgb(0, 5, 41);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+    max-height: 95%;
+    overflow-y: auto;
+    position: relative;
+  }
+  
+  .portfolioV2-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .portfolioV2-modal-gallery img {
+    max-width: 100%;
+    margin: 10px 0;
+    display: block;
+  }
   /* For tablets */
   @media (max-width: 768px) {
-    .portfolioV2-title {
-      font-size: 32px;
-    }
     .portfolioV2-subtitle {
-      font-size: 16px;
+      font-size: 18px;
     }
-  
     .portfolioV2-gallery {
       padding: 20px;
     }
@@ -120,14 +141,11 @@
   
   /* For mobile devices */
   @media (max-width: 480px) {
-    .portfolioV2-title {
-      font-size: 28px;
+    .portfolioV2-modal-content {
+      padding: 10%;
+      max-width: 97%;
+      
     }
-  
-    .portfolioV2-subtitle {
-      font-size: 14px;
-    }
-  
     .portfolioV2-gallery {
       padding: 5px;
       gap: 15px;
@@ -141,4 +159,44 @@
       font-size: 12px;
     }
   }
-  
+  @media (max-width: 768px) {
+    /* Grid adjusts to one column on smaller screens */
+    .portfolioV2-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .portfolioV2-image {
+        height: 200px;
+    }
+    .portfolioV2-modal-gallery img{
+      width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    
+    .portfolioV2-subtitle {
+        font-size: 20px;
+    }
+
+    .portfolioV2-gallery {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .portfolioV2-image {
+        height: 150px;
+    }
+
+    .portfolioV2-modal-content {
+        padding: 10px;
+    }
+    .portfolioV2-close {
+        font-size: 20px;
+        top: 5px;
+        right: 10px;
+    }
+}
