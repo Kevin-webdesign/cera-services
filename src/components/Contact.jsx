@@ -18,7 +18,7 @@ const Contact = () => {
   }
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = "+250783197870"; 
+    const phoneNumber = "+250784507070"; 
     const message = "Hello, I'd like more information!";
     window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`, '_blank');
   };
