@@ -12,11 +12,11 @@ function Home() {
     typeSpeed: 70,
   });
   const handleWhatsAppClick = () => {
-    const phoneNumber = "+250784507070"; 
+    const phone = "+250784507070"; 
     const message = "Hello, I'd like more information!";
-    window.open(`https://api.whatsapp.com/send?phone=${+250784507070}&text=${encodeURIComponent("murahoneza")}`, '_blank');
+    window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`, '_blank');
   };
-  return (
+  return ( 
     <div>
       <Navbar />
       <div className="design">
